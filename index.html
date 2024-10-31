@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I LOVE YOU NISA</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        h1 {
+            font-size: 4em;
+            color: #e74c3c;
+            margin: 0;
+            animation: move 5s infinite alternate;
+        }
+        .icon {
+            font-size: 5em;
+            color: #e74c3c;
+            animation: bounce 1s infinite alternate;
+        }
+        p {
+            font-size: 2em;
+            color: #333;
+            animation: fade 3s infinite alternate;
+        }
+        
+        @keyframes move {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+        
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+
+        @keyframes fade {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .cloud {
+            position: absolute;
+            top: 60%;
+            width: 200px;
+            animation: cloudMove 20s linear infinite;
+        }
+
+        @keyframes cloudMove {
+            0% { left: -10%; }
+            100% { left: 100%; }
+        }
+
+        .flower {
+            position: absolute;
+            top: -10%;
+            font-size: 1.5em;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { top: -10%; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h1>I LOVE YOU NISA</h1>
+    <div class="icon">❤️</div>
+    <p>Selamanya dan selalu</p>
+
+    <!-- Cloud elements -->
+   
+    <img src="awan3.png" class="cloud" style="left: 100%;" alt="Cloud">
+    
+    <script>
+        function createFallingFlowers() {
+            const flowerTypes = ['🌸', '🌼', '🌺'];
+            const container = document.body;
+
+            for (let i = 0; i < 20; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.textContent = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+                flower.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+                flower.style.animationDuration = (Math.random() * 5 + 5) + 's'; // Random duration between 5s to 10s
+                container.appendChild(flower);
+            }
+        }
+
+        createFallingFlowers();
+    </script>
+</body>
+</html>
